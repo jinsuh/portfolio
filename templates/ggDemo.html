@@ -3,6 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Unity Web Player | Easy Money</title>
+		<link href="./css/style.css" type="text/css" rel="stylesheet"/>
 		<script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
 		<script type="text/javascript">
 		<!--
@@ -56,7 +57,7 @@
 						break;
 					}
 				});
-				u.initPlugin(jQuery("#unityPlayer")[0], "GGDEMO.unity3d");
+				u.initPlugin(jQuery("#unityPlayer")[0], "./files/GGDEMO.unity3d");
 			});
 		-->
 		</script>
@@ -116,7 +117,6 @@
 		</style>
 	</head>
 	<body>
-		<p class="header"><span>Unity Web Player | </span>Easy Money</p>
 		<div class="content">
 			<div id="unityPlayer">
 				<div class="missing">
@@ -129,6 +129,13 @@
 						<img alt="Unity Web Player. Install now! Restart your browser after install." src="http://webplayer.unity3d.com/installation/getunityrestart.png" width="193" height="63" />
 					</a>
 				</div>
+			</div>
+			<div>
+				<p class="top-buffer"><strong>Instructions</strong></p>
+				<p class="top-reduce-buffer">This is a local co-op prototype version of our game in progress</p>
+				<p class="top-reduce-buffer">An XBOX controller is necessary to play the game</p>
+				<p class="top-reduce-buffer">The goal is to find the key, the chest, and get out safely.</p>
+				<p class="top-reduce-buffer">See a <a href="https://youtu.be/5ZLrS2Y6Q3Y">trailer</a> of our second version of the game!</p>
 			</div>
 		</div>
 		<p class="footer">&laquo; created with <a href="http://unity3d.com/unity/" title="Go to unity3d.com">Unity</a> &raquo;</p>

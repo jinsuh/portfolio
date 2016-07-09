@@ -36,6 +36,18 @@ app.get("/contact", function(req, res) {
 	res.render("contact.html");
 })
 
+app.get("/ggDemo", function(req, res) {
+	res.render("ggDemo.html");
+});
+
+app.get("/mazeDemo", function(req, res) {
+	res.render("mazeDemo.html");
+});
+
+app.get("/tictactoe", function(req, res) {
+	res.render("tictactoe.html");
+});
+
 app.get("/history", function(req, res) {
 	res.render("history.html");
 });
@@ -57,7 +69,12 @@ io.on("connection", function(socket) {
 	io.emit("player", player);
 	player = player + 1;
 	socket.on("disconnect", function() {
-		console.log("user disconnected");
+		console.log("user disconnected " + player);
+		if (player >= 1) {
+			io.emit("disconnected");
+			moves = new Array();
+			player = 0;
+		}
 	});
 	socket.on("selection", function(squareLoc) {
 		moves.push(squareLoc);
@@ -70,6 +87,10 @@ io.on("connection", function(socket) {
   		});		
 		player = 0;
 	});
+	socket.on("reset", function() {
+		moves = new Array();
+		player = 0;
+	})
 	socket.on("start", function() {
 		io.emit("start");
 	});

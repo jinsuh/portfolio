@@ -14,6 +14,7 @@ for (var i = 0; i < size; i++) {
 const SPECTATOR = "Spectating";
 const WAITING = "Waiting for player's move...";
 const MYTURN = "Make your move!";
+const DISCONNECTED = "Player has disconnected, refresh to start again.";
 
 socket.on("player", function(playerCount) {
 	var state = document.getElementById("status");
@@ -32,6 +33,12 @@ socket.on("player", function(playerCount) {
 socket.on("start", function() {
 	var state = document.getElementById("status");
 	stateSwitch();
+});
+
+socket.on("disconnected", function() {
+	console.log("disconnected");
+	var state = document.getElementById("status");
+	state.innerHTML = DISCONNECTED;
 });
 
 socket.on("selection", function(squareLoc){
@@ -159,6 +166,11 @@ function stateSwitch() {
 			clickGrid(false);
 		}
 	}
+}
+
+function resetPlayers() {
+	console.log("reset clicked");
+	socket.emit("reset");
 }
 
 function toHistory() {
