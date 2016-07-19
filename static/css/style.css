@@ -6,3 +6,8 @@
 .top-reduce-buffer {
   margin: 0px; 
 }
+
+.fit-width {
+    width: 50%;
+    height: 50%;
+}
